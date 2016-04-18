@@ -149,16 +149,22 @@ class Coverflow extends Component {
   }
 
   _handleFigureClick(index, url, e) {
-    e.preventDefault();
-    this.refs.stage.style['pointerEvents'] = 'none';
 
-    if (console && console.log) {
-      console.log ('DLAW: figure was clicked.');
+    // Stop here if the provided URL is empty or was never set on
+    // the img tag.
+    if (!url) {
+      if (console && console.log) {
+        console.log ('Figure was clicked but has no URL. Preventing events.');
+      }
+
+      return true;
     }
 
-    if (this.state.current === index && url) {
-      console.log ('DLAW: figure was clicked and has a URL: ' + url);
+    e.preventDefault();
 
+    this.refs.stage.style['pointerEvents'] = 'none';
+
+    if (this.state.current === index) {
       // TODO: support lightbox.
       window.open(url, '_blank');
       this._removePointerEvents();
