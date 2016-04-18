@@ -152,7 +152,7 @@ class Coverflow extends Component {
     e.preventDefault();
     this.refs.stage.style['pointerEvents'] = 'none';
 
-    if (this.state.current === index) {
+    if (this.state.current === index && url) {
       // TODO: support lightbox.
       window.open(url, '_blank');
       this._removePointerEvents();
