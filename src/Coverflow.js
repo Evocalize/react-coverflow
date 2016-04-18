@@ -150,9 +150,9 @@ class Coverflow extends Component {
 
   _handleFigureClick(index, url, e) {
 
-    // Stop here if the provided URL is empty or was never set on
-    // the img tag.
-    if (!url) {
+    // Stop here if the user clicks on a current figure with
+    // an empty or unset URL.
+    if (!url && this.state.current === index) {
       if (console && console.log) {
         console.log ('Figure was clicked but has no URL. Preventing events.');
       }
