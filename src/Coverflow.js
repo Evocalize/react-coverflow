@@ -155,7 +155,10 @@ class Coverflow extends Component {
     if (console && console.log) {
       console.log ('DLAW: figure was clicked.');
     }
+
     if (this.state.current === index && url) {
+      console.log ('DLAW: figure was clicked and has a URL: ' + url);
+
       // TODO: support lightbox.
       window.open(url, '_blank');
       this._removePointerEvents();
