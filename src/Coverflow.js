@@ -153,10 +153,6 @@ class Coverflow extends Component {
     // Stop here if the user clicks on a current figure with
     // an empty or unset URL.
     if (!url && this.state.current === index) {
-      if (console && console.log) {
-        console.log ('Figure was clicked but has no URL. Preventing events.');
-      }
-
       return true;
     }
 
